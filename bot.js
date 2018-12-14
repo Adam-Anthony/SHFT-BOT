@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '!'
 
+var anyPauses = 0;
+var pausedGuilds = [];
+var pausers = [];
+
 var dotenv = require('dotenv');
 dotenv.load();
 
@@ -16,6 +20,26 @@ client.on('message', msg => {
 
     const args = msg.content.slice(1).trim().split(/ +/g);
     const command = args[0].toLowerCase();
+
+    if (anyPauses > 0){
+        var pauseCheck = pausedGuilds.indexOf(msg.guild);
+        if (pauseCheck > -1){
+            if (pausers[pauseCheck] !== msg.author) return;
+      
+            if (args[0] !== 'resume') return;
+
+            anyPauses--;
+            pausers.splice(pauseCheck);
+            pausedGuilds.splice(pauseCheck);
+            //There is probably an easy way to filter this
+            //using discord.js..
+        }
+    }
+    if (args[0] === 'pause' && msg.guild !== undefined) {
+        pausers.push(msg.author);
+        pausedGuilds.push(msg.guild);
+        anyPauses++;
+    }
 
     if (args[0] === 'tag') {
         if(args.length == 1){
