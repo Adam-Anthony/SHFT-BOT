@@ -1,0 +1,13 @@
+{
+	"name": "SHFT",
+	"version": "1.0.2",
+	"description": "Mirror Tracking",
+	"main": "bot.js",
+	"author": "Patches",
+	"dependencies": {
+		"discord.js": "^11.4.2",
+		"dotenv": "^6.2.0",
+		"npm": "^6.5.0",
+		"winston": "^3.1.0"
+	}
+}
