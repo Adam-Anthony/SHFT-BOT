@@ -36,6 +36,7 @@ client.on('message', msg => {
         }
     }
     if (args[0] === 'pause' && msg.guild !== undefined) {
+        if (!msg.guild.member(msg.author).permissions.has('MANAGE_GUILD', true)) return;
         pausers.push(msg.author);
         pausedGuilds.push(msg.guild);
         anyPauses++;
