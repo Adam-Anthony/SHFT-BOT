@@ -5,3 +5,12 @@ Second Hand Ford Transit Mk6 2000-2006 Passenger Door Mirror Manual Short Arm Bl
 
 Add it to your server!
 https://discordapp.com/oauth2/authorize?&client_id=522819566397685781&scope=bot&permissions=371776
+
+
+
+!tag @[username]
+
+Commands
+---Server Moderators only---
+!pause
+!resume
